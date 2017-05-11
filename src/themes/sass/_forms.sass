@@ -1,0 +1,16 @@
+@import "typography"
+
+.form__title
+  @include base-text-bold
+  text-transform: uppercase
+
+.form__title--bg
+  @include second-level-heading
+  height: 9rem
+  line-height: 9rem
+  text-align: center
+  position: relative
+  color: $white
+  background: linear-gradient(rgba($black, 0.4), rgba($black, 0.4)), url(../img/form_header_bg-1.jpg)
+  background-position: center center
+  background-size: cover

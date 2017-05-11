@@ -1,0 +1,66 @@
+$base-font-size: 1rem
+$base-font-size: 16px
+$base-font-color: $black
+$base-font-family: 'Cabin', sans-serif
+$base-font-weight: bold
+$normal-font-weight: normal
+
+$font-size-small: 14px
+$font-size-large: 18px
+$font-size-x-large: 20px
+$font-size-xx-large: 26px
+$font-size-xxx-large: 36px
+
+
+@mixin first-level-heading()
+  font-size: $font-size-xxx-large
+  font-weight: $base-font-weight
+  line-height: 3rem
+
+@mixin second-level-heading()
+  font-size: $font-size-xx-large
+  font-weight: $base-font-weight
+  line-height: 2.125rem
+
+@mixin base-text()
+  font-size: $base-font-size
+  font-weight: $normal-font-weight
+  line-height: 1.5rem
+
+@mixin base-text-bold()
+  font-size: $base-font-size
+  font-weight: $base-font-weight
+  line-height: 1.5rem
+
+@mixin small-text()
+  font-size: $font-size-small
+  font-weight: $normal-font-weight
+  line-height: 1.25rem
+
+@mixin small-text-bold()
+  font-size: $font-size-small
+  font-weight: $base-font-weight
+  line-height: 1.5rem
+
+
+// TYPOGRAPHY
+
+.first-level-heading
+  @include first-level-heading
+  letter-spacing: 0.07rem
+
+.second-level-heading
+  @include second-level-heading
+  letter-spacing: 0.05rem
+
+.base-text-bold
+  @include base-text-bold
+  letter-spacing: 0.03rem
+
+.base-text
+  @include base-text
+  letter-spacing: 0.025rem
+
+.small-text
+  @include small-text
+  letter-spacing: 0.02rem
