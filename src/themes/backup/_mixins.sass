@@ -1,0 +1,27 @@
+// CLEARFIX FOR FLOATING BLOCKS
+@mixin clearfix
+  content: ''
+  display: table
+  clear: both
+
+
+@mixin input-border
+  border-radius: 3px
+  border: 1px
+  border-style: solid
+  border-color: $grey-border
+  @include inner-shadow
+
+
+// ULTIMATE VERTICAL ALIGN WITH CONTENT JUSTIFY SUPPORT
+@mixin vert-align
+  height: 100%
+  width: 100%
+  overflow: hidden
+  font-size: 0
+  &::after
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+    width: 100%

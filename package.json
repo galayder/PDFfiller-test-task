@@ -23,6 +23,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "gulp-svgstore": "^6.1.0",
     "imagemin-pngquant": "^5.0.0",
+    "jquery-validation": "^1.16.0",
     "lodash": "^4.17.4",
     "normalize.css": "^6.0.0",
     "pug": "^2.0.0-rc.1"

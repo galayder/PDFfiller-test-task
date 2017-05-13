@@ -4,69 +4,80 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Document
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+    title PDFfiller
+    
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
     link(rel="stylesheet", href="themes/css/style.css")
+    
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
+    link(href="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js")
+    
     
   body
   
-    div.wrapper
+    div.card-checkout
     
-      h1 Thank you for choosing to subscribe to PDFfiller services!
+      div.card-checkout__title Thank you for choosing to subscribe to PDFfiller services!
+  
+      form#payment(method="get" action="#" novalidate)
       
-      form
-        fieldset
-          legend Cardhoder Name
-          input#firstName(type="text", name="First Name", placeholder="First Name" required)
-          input#lastName(type="text", name="Last Name", placeholder="Last Name" required)
+        // FIRST AND LAST NAME  
+        div.row
+          div.row__col.row__col--static
+            label.label(for="firstName") Cardholder Name
+          div.row__col.row__col--1-2.gutter
+            input#firstName.fill-in.required(type="text", name="firstName", placeholder="First Name" aria-label="First name" required)
+          div.row__col.row__col--1-2.gutter
+            input#lastName.fill-in.required(type="text", name="lastName", placeholder="Last Name" aria-label="Last name" required)
         
-        fieldset
-          legend Card Number
-          input#cardNumber(type="tel", name="First Name", placeholder="0000 0000 0000 000" maxlength="16" required)
-          div.cardtype
-            ul
-              li VISA
-              li MASTERCARD
-              li DISCOVER
-              li AMERICAN EXPRESS
+        // CARD NUMBER AND BRAND  
+        div.row
+          div.row__col.row__col--static.gutter
+            label.label(for="cardNumber") Card Number
+          div.row__col
+            input#cardNumber.fill-in(type="tel", name="cardNumber", placeholder="0000 0000 0000 000" maxlength="16" required)
+          div.row__col.gutter
+            ul.list
+              li.list__item
+                img(src="assets/icons/visa-icon.svg", alt="Visa card")
+              li.list__item
+                img(src="assets/icons/mastercard-icon.svg", alt="Mastercard card")
+              li.list__item
+                img(src="assets/icons/discover-icon.svg", alt="Discovery card")
+              li.list__item
+                img(src="assets/icons/americanexpress-icon.svg", alt="American express card")
+                
+        // EXP DATE AND CVV         
+        div.row
+          div.row__col.row__col--static-2
+            label.label(for="month") Exp. Date
+          div.row__col.row__col--static-2
+            label.label(for="cvv") CVV/CVC
+          div.row__col.row__col--1-2.gutter
+            select#month.select(name="Month", required)
+            div.divider /
+            select#year.select(name="Year", required)
+          div.row__col.row__col--1-2.gutter
+            input#cvv.fill-in(type="tel", name="cvv", placeholder="XXXX" maxlength="4" required)
         
-        fieldset
-          legend Exp. Date
-          select#month(name="Month", placeholder="First Name" required)
-            option(value="01") 01
-            option(value="02") 02
-            option(value="03") 03
-            option(value="04") 04
-            option(value="05") 05
-            option(value="06") 06
-            option(value="07") 07
-            option(value="08") 08
-            option(value="09") 09
-            option(value="10") 10
-            option(value="11") 11
-            option(value="12") 12
-          select#year(name="Year", placeholder="Last Name" required)
-            option(value="2017") 2017
-            option(value="2018") 2018
-            option(value="2019") 2019
-            option(value="2020") 2020
-            option(value="2021") 2021
-            option(value="2022") 2022
-            option(value="2023") 2023
-            option(value="2024") 2024
-            option(value="2025") 2025
-            option(value="2026") 2026
-            option(value="2027") 2027
-            option(value="2028") 2028
-    
-        fieldset
-          legend CVV/CVC
-          input#cvv(type="tel", name="cvv", placeholder="XXXX" maxlength="4" required)
-          
-        fieldset
-          legend Zip/Postal Code
-          input#zipcode(type="text", name="zipcode", placeholder="01001" maxlength="4" required)
+        // ZIP CODE
+        div.row
+          div.row__col.row__col--static
+            label.label(for="zipcode") Zip/Postal Code
+          div.row__col
+            input#zipcode.fill-in(type="text", name="zipcode", placeholder="01001" maxlength="5" required)
+            
+        // PAY PAL
+        div.row
+          div.row__col.row__col--nested
+            div.gateway__desc Or pay with PayPal
+            button.gateway__link
+              img(src="assets/icons/paypal-btn.svg", alt="")
         
-        button(type="submit") Start My Subscription for $19.99/mo.
+        // SUBMIT FORM
+        div.row
+          div.row__col
+            button.btn(type="submit" for="payment") Start My Subscription for $19.99/mo.
         
-      div Or pay with PayPal
+  script(src="scripts/validate.js")
+  script(src="scripts/select.js")

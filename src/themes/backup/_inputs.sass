@@ -16,15 +16,26 @@ input.fill-in, select.select
   @include base-text
 
 .fill-in
+  display: block
+  float: left
   width: 100%
   min-width: 106px
   &:focus
     border: 2px solid $base-text-color
   @media #{$tablet}
+    width: 162px
 
-.fill-in, .select
-  margin: 0 0 6px 0
 
+.fill-in--md
+  width: 48%
+  margin-right: 4%
+  &:last-child
+    margin-right: 0
+  @media #{$tablet}
+    width: 162px
+    margin-right: 15px
+    &:last-child
+      margin-right: 0
 
 select.select
   -webkit-appearance: none

@@ -4,73 +4,87 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
+    <title>PDFfiller</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
     <link rel="stylesheet" href="themes/css/style.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
+    <link href="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"/>
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Thank you for choosing to subscribe to PDFfiller services!</h1>
-      <form>
-        <fieldset>
-          <legend>Cardhoder Name</legend>
-          <input id="firstName" type="text" name="First Name" placeholder="First Name" required="required"/>
-          <input id="lastName" type="text" name="Last Name" placeholder="Last Name" required="required"/>
-        </fieldset>
-        <fieldset>
-          <legend>Card Number</legend>
-          <input id="cardNumber" type="tel" name="First Name" placeholder="0000 0000 0000 000" maxlength="16" required="required"/>
-          <div class="cardtype">
-            <ul>
-              <li>VISA</li>
-              <li>MASTERCARD</li>
-              <li>DISCOVER</li>
-              <li>AMERICAN EXPRESS</li>
+    <div class="card-checkout">
+      <div class="card-checkout__title">Thank you for choosing to subscribe to PDFfiller services!</div>
+      <form id="payment" method="get" action="#" novalidate="novalidate">
+        <!-- FIRST AND LAST NAME  -->
+        <div class="row">
+          <div class="row__col row__col--static">
+            <label class="label" for="firstName">Cardholder Name</label>
+          </div>
+          <div class="row__col row__col--1-2 gutter">
+            <input class="fill-in required" id="firstName" type="text" name="firstName" placeholder="First Name" aria-label="First name" required="required"/>
+          </div>
+          <div class="row__col row__col--1-2 gutter">
+            <input class="fill-in required" id="lastName" type="text" name="lastName" placeholder="Last Name" aria-label="Last name" required="required"/>
+          </div>
+        </div>
+        <!-- CARD NUMBER AND BRAND  -->
+        <div class="row">
+          <div class="row__col row__col--static gutter">
+            <label class="label" for="cardNumber">Card Number</label>
+          </div>
+          <div class="row__col">
+            <input class="fill-in" id="cardNumber" type="tel" name="cardNumber" placeholder="0000 0000 0000 000" maxlength="16" required="required"/>
+          </div>
+          <div class="row__col gutter">
+            <ul class="list">
+              <li class="list__item"><img src="assets/icons/visa-icon.svg" alt="Visa card"/></li>
+              <li class="list__item"><img src="assets/icons/mastercard-icon.svg" alt="Mastercard card"/></li>
+              <li class="list__item"><img src="assets/icons/discover-icon.svg" alt="Discovery card"/></li>
+              <li class="list__item"><img src="assets/icons/americanexpress-icon.svg" alt="American express card"/></li>
             </ul>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>Exp. Date</legend>
-          <select id="month" name="Month" placeholder="First Name" required="required">
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
-            <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
-          <select id="year" name="Year" placeholder="Last Name" required="required">
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="2025">2025</option>
-            <option value="2026">2026</option>
-            <option value="2027">2027</option>
-            <option value="2028">2028</option>
-          </select>
-        </fieldset>
-        <fieldset>
-          <legend>CVV/CVC</legend>
-          <input id="cvv" type="tel" name="cvv" placeholder="XXXX" maxlength="4" required="required"/>
-        </fieldset>
-        <fieldset>
-          <legend>Zip/Postal Code</legend>
-          <input id="zipcode" type="text" name="zipcode" placeholder="01001" maxlength="4" required="required"/>
-        </fieldset>
-        <button type="submit">Start My Subscription for $19.99/mo.</button>
+        </div>
+        <!-- EXP DATE AND CVV         -->
+        <div class="row">
+          <div class="row__col row__col--static-2">
+            <label class="label" for="month">Exp. Date</label>
+          </div>
+          <div class="row__col row__col--static-2">
+            <label class="label" for="cvv">CVV/CVC</label>
+          </div>
+          <div class="row__col row__col--1-2 gutter">
+            <select class="select" id="month" name="Month" required="required"></select>
+            <div class="divider">/</div>
+            <select class="select" id="year" name="Year" required="required"></select>
+          </div>
+          <div class="row__col row__col--1-2 gutter">
+            <input class="fill-in" id="cvv" type="tel" name="cvv" placeholder="XXXX" maxlength="4" required="required"/>
+          </div>
+        </div>
+        <!-- ZIP CODE-->
+        <div class="row">
+          <div class="row__col row__col--static">
+            <label class="label" for="zipcode">Zip/Postal Code</label>
+          </div>
+          <div class="row__col">
+            <input class="fill-in" id="zipcode" type="text" name="zipcode" placeholder="01001" maxlength="5" required="required"/>
+          </div>
+        </div>
+        <!-- PAY PAL-->
+        <div class="row">
+          <div class="row__col row__col--nested">
+            <div class="gateway__desc">Or pay with PayPal</div>
+            <button class="gateway__link"><img src="assets/icons/paypal-btn.svg" alt=""/></button>
+          </div>
+        </div>
+        <!-- SUBMIT FORM-->
+        <div class="row">
+          <div class="row__col">
+            <button class="btn" type="submit" for="payment">Start My Subscription for $19.99/mo.</button>
+          </div>
+        </div>
       </form>
-      <div>Or pay with PayPal</div>
     </div>
   </body>
+  <script src="scripts/validate.js"></script>
+  <script src="scripts/select.js"></script>
 </html>
