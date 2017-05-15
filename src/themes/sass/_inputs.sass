@@ -1,47 +1,29 @@
-
-
-[type="text"], [type="tel"]
+// INPUTS
+[type="text"],
+[type="tel"],
+[type="submit"]
+  border: 0
   padding: 0
   margin: 0
-  border: 0
+  width: 100%
 
 ::placeholder
   color: $placeholder-color
 
 
-input.fill-in, select.select
+.fill, .dropdown
   height: 32px
   padding: 0 10px
   @include input-border
-  @include base-text
 
-.fill-in
-  width: 100%
-  min-width: 106px
-  &:focus
-    border: 2px solid $base-text-color
-  @media #{$tablet}
-
-.fill-in, .select
-  margin: 0 0 6px 0
-
-
-select.select
+.dropdown
   -webkit-appearance: none
   -moz-appearance: none
-  display: block
-  float: left
-  min-width: 64px
-  padding-right: 20px
   cursor: pointer
+  display: inline-block
+  min-width: 64px
+
   background-image: url(/assets/icons/select-arrow.svg)
   background-size: 9px 5px
   background-position: 90% center
   background-repeat: no-repeat
-
-.divider
-  float: left
-  height: 32px
-  width: 21px
-  text-align: center
-  line-height: 32px

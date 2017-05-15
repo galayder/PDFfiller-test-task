@@ -1,38 +1,58 @@
-$().ready(function(){
+$().ready(function() {
+  $('input').bind('keydown', function(e) {
+    if (e.which === 9)
+      $('#checkout').validate({
 
-    $("payment").validate({
+        submitHandler: function(form) {
+          $(form).ajaxSubmit();
 
-       rules:{
+        invalidHandler: function(event, validator) {
+          // 'this' refers to the form
+          var errors = validator.numberOfInvalids();
+          if (errors) {
+            var message = errors == 1 ?
+              'You missed 1 field. It has been highlighted' :
+              'You missed ' + errors + ' fields. They have been highlighted';
+            $("div.error span").html(message);
+            $("div.error").show();
+          } else {
+            $("div.error").hide();
+          }
+        },
 
-            firstName:{
-                required: true,
-                minlength: 2,
-                maxlength: 16,
-            },
-
-            lastName:{
-                required: true,
-                minlength: 2,
-                maxlength: 16,
-            },
-       },
-
-       messages:{
-
-            login:{
-                required: "Это поле обязательно для заполнения",
-                minlength: "Логин должен быть минимум 4 символа",
-                maxlength: "Максимальное число символо - 16",
-            },
-
-            pswd:{
-                required: "Это поле обязательно для заполнения",
-                minlength: "Пароль должен быть минимум 6 символа",
-                maxlength: "Пароль должен быть максимум 16 символов",
-            },
-
-       }
-
-    });
-
-});
+        rules: {
+          focusInvalid: true,
+          cardnumber: {
+            required: true,
+            creditcard: true,
+            length: 16
+          },
+          firstname: {
+            required: true,
+            minlength: 2,
+            maxlength: 20
+          },
+          lastname: {
+            required: true,
+            minlength: 2,
+            maxlength: 20
+          }
+        },
+        messages: {
+          cardnumber: {
+            required: 'Provide your card number'
+          },
+          firstname: {
+            required: 'What is your First name?',
+            minlength: 'Too short',
+            maxlength: 'Wow, how do you spell it?)'
+          },
+          lastname: {
+            required: 'What is your Last Name?',
+            minlength: 'Too short',
+            maxlength: 'Wow, how do you spell it?)'
+          }
+        }
+      })
+  })
+})

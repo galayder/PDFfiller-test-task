@@ -5,86 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>PDFfiller</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"/>
+    <link rel="stylesheet" href="themes/css/normalize.css"/>
     <link rel="stylesheet" href="themes/css/style.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
-    <link href="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"/>
   </head>
   <body>
-    <div class="card-checkout">
-      <div class="card-checkout__title">Thank you for choosing to subscribe to PDFfiller services!</div>
-      <form id="payment" method="get" action="#" novalidate="novalidate">
-        <!-- FIRST AND LAST NAME  -->
-        <div class="row">
-          <div class="row__col row__col--static">
-            <label class="label" for="firstName">Cardholder Name</label>
-          </div>
-          <div class="row__col row__col--1-2 gutter">
-            <input class="fill-in required" id="firstName" type="text" name="firstName" placeholder="First Name" aria-label="First name" required="required"/>
-          </div>
-          <div class="row__col row__col--1-2 gutter">
-            <input class="fill-in required" id="lastName" type="text" name="lastName" placeholder="Last Name" aria-label="Last name" required="required"/>
-          </div>
-        </div>
-        <!-- CARD NUMBER AND BRAND  -->
-        <div class="row">
-          <div class="row__col row__col--static gutter">
-            <label class="label" for="cardNumber">Card Number</label>
-          </div>
-          <div class="row__col">
-            <input class="fill-in" id="cardNumber" type="tel" name="cardNumber" placeholder="0000 0000 0000 000" maxlength="16" required="required"/>
-          </div>
-          <div class="row__col gutter">
-            <ul class="list">
-              <li class="list__item"><img src="assets/icons/visa-icon.svg" alt="Visa card"/></li>
-              <li class="list__item"><img src="assets/icons/mastercard-icon.svg" alt="Mastercard card"/></li>
-              <li class="list__item"><img src="assets/icons/discover-icon.svg" alt="Discovery card"/></li>
-              <li class="list__item"><img src="assets/icons/americanexpress-icon.svg" alt="American express card"/></li>
-            </ul>
-          </div>
-        </div>
-        <!-- EXP DATE AND CVV         -->
-        <div class="row">
-          <div class="row__col row__col--static-2">
-            <label class="label" for="month">Exp. Date</label>
-          </div>
-          <div class="row__col row__col--static-2">
-            <label class="label" for="cvv">CVV/CVC</label>
-          </div>
-          <div class="row__col row__col--1-2 gutter">
-            <select class="select" id="month" name="Month" required="required"></select>
-            <div class="divider">/</div>
-            <select class="select" id="year" name="Year" required="required"></select>
-          </div>
-          <div class="row__col row__col--1-2 gutter">
-            <input class="fill-in" id="cvv" type="tel" name="cvv" placeholder="XXXX" maxlength="4" required="required"/>
-          </div>
-        </div>
-        <!-- ZIP CODE-->
-        <div class="row">
-          <div class="row__col row__col--static">
-            <label class="label" for="zipcode">Zip/Postal Code</label>
-          </div>
-          <div class="row__col">
-            <input class="fill-in" id="zipcode" type="text" name="zipcode" placeholder="01001" maxlength="5" required="required"/>
-          </div>
-        </div>
-        <!-- PAY PAL-->
-        <div class="row">
-          <div class="row__col row__col--nested">
-            <div class="gateway__desc">Or pay with PayPal</div>
-            <button class="gateway__link"><img src="assets/icons/paypal-btn.svg" alt=""/></button>
-          </div>
-        </div>
-        <!-- SUBMIT FORM-->
-        <div class="row">
-          <div class="row__col">
-            <button class="btn" type="submit" for="payment">Start My Subscription for $19.99/mo.</button>
-          </div>
-        </div>
-      </form>
+    <div class="layout__block">
+      <div class="block__title">Thank you for choosing to subscribe to PDFfiller services!</div>
     </div>
+    <div class="layout">
+      <div class="layout__block formset">
+        <form id="checkout" action="" method="GET">
+          <div class="grid">
+            <div class="grid__row">
+              <div class="grid__col grid__col--fixed">
+                <label for="firstname">Cardholder Name</label>
+              </div>
+              <div class="grid__col">
+                <input class="fill" id="firstname" type="text" name="firstname" placeholder="First Name" required="required"/>
+                <label class="tooltip--error-js" for=""></label>
+              </div>
+              <div class="grid__col">
+                <input class="fill" id="lastname" type="text" name="lastname" placeholder="Last Name" required="required"/>
+              </div>
+            </div>
+            <div class="grid__row">
+              <div class="grid__col grid__col--fixed">
+                <label for="cardnumber">Card Number</label>
+              </div>
+              <div class="grid__col">
+                <input class="fill" id="cardnumber" type="text" name="cardnumber" placeholder="0000 0000 0000 0000" required="required"/>
+              </div>
+              <div class="grid__col absolute">
+                <ul class="list">
+                  <li class="list__item"><img class="item__content" src="assets/icons/visa-icon.svg" alt=""/></li>
+                  <li class="list__item"><img class="item__content" src="assets/icons/mastercard-icon.svg" alt=""/></li>
+                  <li class="list__item"><img class="item__content" src="assets/icons/discover-icon.svg" alt=""/></li>
+                  <li class="list__item"><img class="item__content" src="assets/icons/americanexpress-icon.svg" alt=""/></li>
+                </ul>
+              </div>
+            </div>
+            <div class="grid__row">
+              <div class="grid__col grid__col--fixed">
+                <label for="month">Exp. Date</label>
+              </div>
+              <div class="grid__col">
+                <select class="dropdown" id="month" name="month" required="required">
+                  <option class="dropdown__item" value="1">01</option>
+                  <option class="dropdown__item" value="2">02</option>
+                  <option class="dropdown__item" value="3">03</option>
+                  <option class="dropdown__item" value="4">04</option>
+                  <option class="dropdown__item" value="5">05</option>
+                  <option class="dropdown__item" value="6">06</option>
+                  <option class="dropdown__item" value="7">07</option>
+                  <option class="dropdown__item" value="8">08</option>
+                  <option class="dropdown__item" value="9">09</option>
+                  <option class="dropdown__item" value="10">10</option>
+                  <option class="dropdown__item" value="11">11</option>
+                  <option class="dropdown__item" value="12">12</option>
+                </select>
+                <select class="dropdown" id="year" name="year" required="required">
+                  <option value="1">2017</option>
+                  <option value="2">2018</option>
+                  <option value="3">2019</option>
+                  <option value="4">2020</option>
+                  <option value="5">2021</option>
+                  <option value="6">2022</option>
+                  <option value="7">2023</option>
+                  <option value="8">2024</option>
+                  <option value="9">2025</option>
+                  <option value="10">2026</option>
+                  <option value="11">2027</option>
+                  <option value="12">2028</option>
+                </select>
+              </div>
+              <div class="grid__col">
+                <div class="grid__row shrinked">
+                  <div class="grid__col grid__col--fixed">
+                    <label for="cvv">CVV/CVC</label>
+                  </div>
+                  <div class="grid__col">
+                    <input class="fill" id="cvv" type="text" name="cvv" placeholder="0000" required="required"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid__row">
+              <div class="grid__col grid__col--fixed">
+                <label for="">Zip/Postal Code</label>
+              </div>
+              <div class="grid__col">
+                <input class="fill" type="text" name="" placeholder="01001" required="required"/>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="layout__block layout__block--clear">
+        <div class="block__comp comp__style">
+          <div class="comp__title">Or pay with Paypal</div>
+          <div class="comp__action"><a class="comp__label" href="#"><img src="assets/icons/paypal-btn.svg" alt=""/></a></div>
+        </div>
+      </div>
+      <div class="layout__block">
+        <div class="block__comp submission">
+          <button class="btn btn--rc btn--submit" type="submit" for="checkout" form="#checkout">Start My Subscription for $19.99/mo.</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
-  <script src="scripts/validate.js"></script>
-  <script src="scripts/select.js"></script>
 </html>

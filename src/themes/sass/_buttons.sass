@@ -1,31 +1,23 @@
-// #BUTTONS
-
-[type="button"],
-[type="submit"]
-  position: relative
-  margin:  0
-  padding: 0
-  border:  0
-  outline: none
+// BUTTONS
 
 .btn
+  cursor: pointer
   width: 100%
   padding: 13px 20px
-  border-radius: 3px
-  border: 1px solid $orange-dark
-  font-weight: bold
   text-decoration: none
+  border: 1px solid
+
+.btn--rc
+  border-radius: 3px
+
+.btn--submit
+  font-weight: bold
+  color: $white
+  border-color: $orange-dark
   background: $orange-light
   @include orange-gradient
-  color: $white
-  cursor: pointer
-  transition: all 0.15s ease-in-out
   &:hover
     background: $orange-light
   &:active
     background: $orange-dark
-
-#paypal-button
-  display: block
-  width: 100px
-  height: 38px
+  transition: all 0.15s ease-in-out
