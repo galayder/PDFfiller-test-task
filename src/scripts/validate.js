@@ -1,5 +1,12 @@
 $("#checkout").validate({
 
+  success: function(label) {
+    label.addClass("valid").text("Ok!")
+  },
+  submitHandler: function() {
+    alert("Submitted!")
+  },
+
   submitHandler: function(form) {
     // do other things for a valid form
     form.submit();
@@ -19,7 +26,7 @@ $("#checkout").validate({
     cardnumber: {
       required: true,
       creditcard: true,
-      minlength: 16
+      maxlength: 16
     },
     month: {
       required: true
@@ -29,16 +36,16 @@ $("#checkout").validate({
     },
     cvv: {
       required: true,
-      length: 4
+      minlength: 3
     },
     zipcode: {
       required: true,
-      length: 5
+      maxlength: 5
     }
   },
 
   messages: {
-    lasname: {
+    firstname: {
       required: "Please, fill in",
       minlength: "Too short",
       maxlength: "Wow, how do you spell it?)"
@@ -50,21 +57,20 @@ $("#checkout").validate({
     },
     cardnumber: {
       required: "Provide creditcard number",
-      creditcard: "It's a creditcard",
       length: "Must be 16 digits"
     },
     month: {
-      required: "Error"
+      required: "Please, select"
     },
     year: {
-      required: "Error"
+      required: "Please, select"
     },
     cvv: {
-      required: "Error",
-      minlength: "Error"
+      required: "Enter CVV",
+      minlength: "At least 3 chars"
     },
     zipcode: {
-      required: "Error"
+      required: "Must be 5 chars"
     }
   },
 

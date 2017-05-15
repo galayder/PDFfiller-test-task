@@ -19,7 +19,7 @@ html(lang="en")
     .layout
       .layout__block.formset
         
-        form#checkout(name="checkout" action="/success.html" method="get")
+        form#checkout(name="checkout" action="#" method="get")
           .grid
             .grid__row
               .grid__col.grid__col--fixed
@@ -63,6 +63,7 @@ html(lang="en")
                   option.dropdown__item(value="10") 10
                   option.dropdown__item(value="11") 11
                   option.dropdown__item(value="12") 12
+                span.dropdown__split /
                 select#year.dropdown(name="year")
                   option(value="") YYYY
                   option(value="1") 2017

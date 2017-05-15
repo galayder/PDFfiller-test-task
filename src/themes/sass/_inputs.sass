@@ -2,6 +2,7 @@
 [type="text"],
 [type="tel"],
 [type="submit"]
+  position: relative
   border: 0
   padding: 0
   margin: 0
@@ -12,6 +13,7 @@
 
 
 .fill, .dropdown
+  position: relative
   height: 32px
   padding: 0 10px
   @include input-border
@@ -21,9 +23,18 @@
   -moz-appearance: none
   cursor: pointer
   display: inline-block
+  position: relative
   min-width: 64px
 
   background-image: url(/assets/icons/select-arrow.svg)
   background-size: 9px 5px
   background-position: 90% center
   background-repeat: no-repeat
+
+.dropdown__split
+  width: 20px
+  height: 32px
+  line-height: 32px
+  position: relative
+  text-align: center
+  vertical-align: middle
