@@ -1,11 +1,37 @@
 $().ready(function() {
 
+  $('input').on("keypress", function(e) {
+    /* ENTER PRESSED*/
+    if (e.keyCode == 13) {
+      /* FOCUS ELEMENT */
+      var inputs = $(this).parents("form").eq(0).find(":input");
+      var idx = inputs.index(this);
+
+      if (idx == inputs.length - 1) {
+        inputs[0].select()
+      } else {
+        inputs[idx + 1].focus(); //  handles submit buttons
+        inputs[idx + 1].select();
+      }
+      return false;
+    }
+  });
+
   $('#checkout').validate({
 
-    success: function(label) {
-      input.addClass("valid")
-    },
-    success: function() {
+    invalidHandler: function(event, validator) {
+      // 'this' refers to the form
+      form.submit();
+      var errors = validator.numberOfInvalids();
+      if (errors) {
+        var message = errors == 1 ?
+          'You missed 1 field. It has been highlighted' :
+          'You missed ' + errors + ' fields. They have been highlighted';
+        $("div.error span").html(message);
+        $("div.error").show();
+      } else {
+        $("div.error").hide();
+      }
     },
 
     rules: {
