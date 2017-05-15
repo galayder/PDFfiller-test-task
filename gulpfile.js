@@ -77,7 +77,7 @@ gulp.task('css-libs', ['sass'], function() {
     return gulp.src('src/themes/css/*/**') // Choose style to minify
         .pipe(cssnano()) // Minifying
         .pipe(rename({suffix: '.min'})) // Adding suffix .min
-        .pipe(gulp.dest('src/themes/css')); // Load to destination
+        .pipe(gulp.dest('public/css')); // Load to destination
 });
 
 // Watching changes
@@ -114,16 +114,16 @@ gulp.task('img', function() {
 gulp.task('build', ['img', 'sass'], function() {
 
     var buildCss = gulp.src([ // Put css to production
-        'src/themes/css/base.css',
+        'src/themes/css/*.css',
         'src/themes/libs.min.css'
         ])
     .pipe(gulp.dest('public/css'))
 
-    var buildFonts = gulp.src('fonts/**/*') // Put fonts to production
+    var buildFonts = gulp.src('src/assets/fonts/**/*') // Put fonts to production
     .pipe(gulp.dest('public/fonts'))
 
-    var buildJs = gulp.src('src/js/**/*') // Put scripts to production
-    .pipe(gulp.dest('public/js'))
+    var buildJs = gulp.src('src/scripts/**/*') // Put scripts to production
+    .pipe(gulp.dest('public/scripts'))
 
     var buildHtml = gulp.src('src/*.html') // Put html to production
     .pipe(gulp.dest('public'));
