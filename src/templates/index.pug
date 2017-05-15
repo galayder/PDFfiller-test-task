@@ -15,17 +15,17 @@ html(lang="en")
 
     .layout__block
       .block__title Thank you for choosing to subscribe to PDFfiller services!
-        
+    
     .layout
       .layout__block.formset
-        form#checkout(action="" method="GET")
+        
+        form#checkout(action="" method="POST")
           .grid
             .grid__row
               .grid__col.grid__col--fixed
                 label(for="firstname") Cardholder Name
               .grid__col
                 input#firstname.fill(type="text" name="firstname" placeholder="First Name" required)
-                label.tooltip--error-js(for="")
               .grid__col
                 input#lastname.fill(type="text" name="lastname" placeholder="Last Name" required)
 
@@ -46,10 +46,11 @@ html(lang="en")
                     img.item__content(src="assets/icons/americanexpress-icon.svg", alt="")
 
             .grid__row
-              .grid__col.grid__col--fixed
+              .grid__col.grid__col--fixed.clear
                 label(for="month") Exp. Date
               .grid__col
                 select#month.dropdown(name="month" required)
+                  option(value="") MM
                   option.dropdown__item(value="1") 01
                   option.dropdown__item(value="2") 02
                   option.dropdown__item(value="3") 03
@@ -63,6 +64,7 @@ html(lang="en")
                   option.dropdown__item(value="11") 11
                   option.dropdown__item(value="12") 12
                 select#year.dropdown(name="year" required)
+                  option(value="") YYYY
                   option(value="1") 2017
                   option(value="2") 2018
                   option(value="3") 2019
@@ -77,7 +79,7 @@ html(lang="en")
                   option(value="12") 2028
 
               .grid__col
-                .grid__row.shrinked
+                .grid__row
                   .grid__col.grid__col--fixed
                     label(for="cvv") CVV/CVC
                   .grid__col
@@ -85,11 +87,9 @@ html(lang="en")
 
             .grid__row
               .grid__col.grid__col--fixed
-                label(for="") Zip/Postal Code
+                label(for="zipcode") Zip/Postal Code
               .grid__col
-                input.fill(type="text" name="" placeholder="01001" required)
-          
-
+                input#zipcode.fill(type="text" name="zipcode" placeholder="01001" required)
       .layout__block.layout__block--clear
         .block__comp.comp__style
           .comp__title Or pay with Paypal
@@ -99,9 +99,10 @@ html(lang="en")
 
       .layout__block
         .block__comp.submission
-          button.btn.btn--rc.btn--submit(type="submit" for="checkout" form="#checkout") Start My Subscription for $19.99/mo.
+          button.btn.btn--rc.btn--submit(type="submit" form="#checkout") Start My Subscription for $19.99/mo.
     
     
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js")
     script(src="scripts/jquery.validate.js")
+    script(src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js")
     script(src="scripts/validate.js")

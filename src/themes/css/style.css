@@ -57,6 +57,7 @@ li {
   -ms-flex-pack: justify;
       justify-content: space-between;
   padding: 15px;
+  margin: 6px 0 12px 0;
   background-color: #f7f7f7;
   border: 1px solid #dddddd;
   border-radius: 6px; }
@@ -167,7 +168,7 @@ li {
   -ms-flex: 1 1 50%;
       flex: 1 1 50%;
   padding-left: 10px;
-  padding-bottom: 12px; }
+  padding-bottom: 6px; }
   .grid__col:first-child {
     padding-bottom: 6px;
     font-weight: bold; }
@@ -310,24 +311,13 @@ li {
   .btn--submit:active {
     background: #fd7722; }
 
-.tooltip--error-js {
-  position: absolute;
-  box-sizing: border-box;
-  top: -95%;
-  left: 50%;
-  text-align: center;
-  white-space: nowrap;
-  transform: translateX(-50%);
-  display: none;
-  padding: 10px 9px;
-  border-radius: 3px;
-  border: 1px solid #ef5350;
-  font-size: 13px;
-  color: #ef5350;
-  font-weight: bold;
-  background-color: #ffebee;
+.valid {
+  border: 1px solid mediumseagreen;
+  color: mediumseagreen;
+  font-size: 12px;
+  background-color: rgba(60, 179, 113, 0.05);
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   z-index: 999;
-  transition: ease 0.3s; }
+  transition: ease 0.25s; }
 
 /*# sourceMappingURL=style.css.map */
