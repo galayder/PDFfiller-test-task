@@ -11,7 +11,8 @@ var gulp         = require('gulp'),
     imagemin     = require('gulp-imagemin'),
     pngquant     = require('imagemin-pngquant'),
     cache        = require('gulp-cache'),
-    pug          = require('gulp-pug');
+    pug          = require('gulp-pug'),
+    gcmq         = require ('gulp-group-css-media-queries');
 
 
 gulp.task('sass', function(){
@@ -25,6 +26,12 @@ gulp.task('sass', function(){
         .pipe(browserSync.reload({
         stream: true
     }))
+});
+
+gulp.task('gcmq', function () {
+    gulp.src('src/themes/css/style.css')
+        .pipe(gcmq())
+        .pipe(gulp.dest('public/themes/css'));
 });
 
 // Compile pug to html
@@ -77,7 +84,7 @@ gulp.task('css-libs', ['sass'], function() {
     return gulp.src('src/themes/css/*/**') // Choose style to minify
         .pipe(cssnano()) // Minifying
         .pipe(rename({suffix: '.min'})) // Adding suffix .min
-        .pipe(gulp.dest('public/css')); // Load to destination
+        .pipe(gulp.dest('public/themes/css')); // Load to destination
 });
 
 // Watching changes
@@ -95,7 +102,7 @@ gulp.task('clear', function () {
 
 // Clear dist before build
 gulp.task('clean', function() {
-    return del.sync('public');
+    return del.sync('public/');
 });
 
 // Optimize images
@@ -107,20 +114,19 @@ gulp.task('img', function() {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         })))
-        .pipe(gulp.dest('public/img')); // Выгружаем на продакшен
+        .pipe(gulp.dest('public/assets/img')); // Выгружаем на продакшен
 });
 
 // Build to dist
-gulp.task('build', ['img', 'sass'], function() {
+gulp.task('build', ['img', 'sass', 'gcmq'], function() {
 
     var buildCss = gulp.src([ // Put css to production
-        'src/themes/css/*.css',
         'src/themes/libs.min.css'
         ])
-    .pipe(gulp.dest('public/css'))
+    .pipe(gulp.dest('public/themes/css'))
 
     var buildFonts = gulp.src('src/assets/fonts/**/*') // Put fonts to production
-    .pipe(gulp.dest('public/fonts'))
+    .pipe(gulp.dest('public/assets/fonts'))
 
     var buildJs = gulp.src('src/scripts/**/*') // Put scripts to production
     .pipe(gulp.dest('public/scripts'))
