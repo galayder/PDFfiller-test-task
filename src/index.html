@@ -14,17 +14,17 @@
     </div>
     <div class="layout">
       <div class="layout__block formset">
-        <form id="checkout" action="" method="POST">
+        <form id="checkout" name="checkout" action="/success.html" method="get">
           <div class="grid">
             <div class="grid__row">
               <div class="grid__col grid__col--fixed">
                 <label for="firstname">Cardholder Name</label>
               </div>
               <div class="grid__col">
-                <input class="fill" id="firstname" type="text" name="firstname" placeholder="First Name" required="required"/>
+                <input class="fill" id="firstname" type="text" name="firstname" placeholder="First Name"/>
               </div>
               <div class="grid__col">
-                <input class="fill" id="lastname" type="text" name="lastname" placeholder="Last Name" required="required"/>
+                <input class="fill" id="lastname" type="text" name="lastname" placeholder="Last Name"/>
               </div>
             </div>
             <div class="grid__row">
@@ -32,7 +32,7 @@
                 <label for="cardnumber">Card Number</label>
               </div>
               <div class="grid__col">
-                <input class="fill" id="cardnumber" type="text" name="cardnumber" placeholder="0000 0000 0000 0000" required="required"/>
+                <input class="fill" id="cardnumber" type="tel" name="cardnumber" placeholder="0000 0000 0000 0000"/>
               </div>
               <div class="grid__col absolute">
                 <ul class="list">
@@ -48,7 +48,7 @@
                 <label for="month">Exp. Date</label>
               </div>
               <div class="grid__col">
-                <select class="dropdown" id="month" name="month" required="required">
+                <select class="dropdown" id="month" name="month">
                   <option value="">MM</option>
                   <option class="dropdown__item" value="1">01</option>
                   <option class="dropdown__item" value="2">02</option>
@@ -63,7 +63,7 @@
                   <option class="dropdown__item" value="11">11</option>
                   <option class="dropdown__item" value="12">12</option>
                 </select>
-                <select class="dropdown" id="year" name="year" required="required">
+                <select class="dropdown" id="year" name="year">
                   <option value="">YYYY</option>
                   <option value="1">2017</option>
                   <option value="2">2018</option>
@@ -85,7 +85,7 @@
                     <label for="cvv">CVV/CVC</label>
                   </div>
                   <div class="grid__col">
-                    <input class="fill" id="cvv" type="text" name="cvv" placeholder="0000" required="required"/>
+                    <input class="fill" id="cvv" type="text" name="cvv" placeholder="0000"/>
                   </div>
                 </div>
               </div>
@@ -95,7 +95,7 @@
                 <label for="zipcode">Zip/Postal Code</label>
               </div>
               <div class="grid__col">
-                <input class="fill" id="zipcode" type="text" name="zipcode" placeholder="01001" required="required"/>
+                <input class="fill" id="zipcode" type="text" name="zipcode" placeholder="01001"/>
               </div>
             </div>
           </div>
@@ -104,18 +104,18 @@
       <div class="layout__block layout__block--clear">
         <div class="block__comp comp__style">
           <div class="comp__title">Or pay with Paypal</div>
-          <div class="comp__action"><a class="comp__label" href="#"><img src="assets/icons/paypal-btn.svg" alt=""/></a></div>
+          <div class="comp__action"><a class="comp__label" href="#"><img src="assets/icons/paypal-btn.svg" alt="PayPal"/></a></div>
         </div>
       </div>
       <div class="layout__block">
         <div class="block__comp submission">
-          <button class="btn btn--rc btn--submit" type="submit" form="#checkout">Start My Subscription for $19.99/mo.</button>
+          <button class="btn btn--rc btn--submit" type="submit" form="checkout" value="">Start My Subscription for $19.99/mo.</button>
         </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/additional-methods.js"></script>
     <script src="scripts/jquery.validate.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="scripts/validate.js"></script>
   </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>PDFfiller</title>
+    <link rel="stylesheet" href="themes/css/normalize.css"/>
+  </head>
+  <body>
+    <form id="checkout" name="checkout" action="/success.html" onsubmit="return validateForm()" method="get">
+      <input type="text" name="fname" required="required"/>
+      <input class="btn btn--rc btn--submit" type="submit" form="checkout" value="Start My Subscription for $19.99/mo."/>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+    <script src="scripts/validate.js"> </script>
+  </body>
+</html>
